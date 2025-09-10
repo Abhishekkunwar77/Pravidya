@@ -16,7 +16,9 @@ function formatLessonContent(text) {
 
 
 
+
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Courses.css';
 
 const YOUTUBE_API_KEY = 'AIzaSyD0_4V8ML0lgFbJcAyoXz71bk0LQSNGj9I';
@@ -107,68 +109,16 @@ const subjects = [
 
 
 const Courses = () => {
-  const [selectedSubject, setSelectedSubject] = useState(null);
-  const [selectedTopic, setSelectedTopic] = useState('');
-  const [lesson, setLesson] = useState('');
   const [search, setSearch] = useState('');
   const [videoCourses, setVideoCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [topicLoading, setTopicLoading] = useState(false);
+  const navigate = useNavigate();
 
-  // Groq API integration using llama-3-8b-chat
-  const fetchGroqLesson = async (subject, topic) => {
-    setTopicLoading(true);
-    setLesson('');
-    setError('');
-    const apiKey = '';
-    const endpoint = 'https://api.groq.com/openai/v1/chat/completions';
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-           model: 'llama-3.1-8b-instant',
-          messages: [{
-            role: 'user',
-            content: `Explain the basics of "${topic}" for ${subject.title} in simple language for rural school students in Punjab. Keep it short, clear, and easy to understand.`
-          }]
-        })
-      });
-      const data = await response.json();
-      if (data.choices && data.choices[0]?.message?.content) {
-        setLesson(data.choices[0].message.content);
-      } else if (data.error) {
-        setLesson('Error: ' + (data.error.message || 'Groq API error.'));
-      } else {
-        setLesson('No text generated. See console for details.');
-        console.error('Unexpected Groq API response:', data);
-      }
-    } catch (err) {
-      setLesson('Request failed: ' + err.message);
-    }
-    setTopicLoading(false);
-  };
-
-  const handleCardClick = (subject) => {
-    setSelectedSubject(subject);
-    setSelectedTopic('');
-    setLesson('');
-  };
-
-  const handleCloseModal = () => {
-    setSelectedSubject(null);
-    setSelectedTopic('');
-    setLesson('');
-  };
-
-  const handleTopicSelect = (e) => {
-    const topic = e.target.value;
-    setSelectedTopic(topic);
-    if (topic) fetchGroqLesson(selectedSubject, topic);
+  const handleTopicSelect = (subjectKey, topic) => {
+    const topicKey = topic.replace(/\s|&/g, '').toLowerCase();
+    const url = `/courses/${subjectKey}/${topicKey}`;
+    window.open(url, '_blank');
   };
 
   const handleVideoSearch = async (e) => {
@@ -240,8 +190,7 @@ const Courses = () => {
             <div
               className="course-card"
               key={subject.key}
-              onClick={() => handleCardClick(subject)}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'default' }}
             >
               <img 
                 src={subject.image} 
@@ -254,68 +203,37 @@ const Courses = () => {
                 <h3 className="course-title">{subject.title}</h3>
                 <p className="course-channel">{subject.description}</p>
               </div>
+              {/* Topic dropdown */}
+              <div style={{ marginTop: '1rem', width: '100%' }}>
+                <select
+                  defaultValue=""
+                  onChange={e => {
+                    if (e.target.value) handleTopicSelect(subject.key, e.target.value);
+                  }}
+                  style={{
+                    padding: '0.6rem 1rem',
+                    borderRadius: '8px',
+                    border: '1.5px solid #4f8cff',
+                    fontSize: '1.01rem',
+                    background: '#f9faff',
+                    color: '#222',
+                    outline: 'none',
+                    minWidth: '180px',
+                    boxShadow: '0 2px 8px rgba(79,140,255,0.07)'
+                  }}
+                >
+                  <option value="">-- Choose a topic --</option>
+                  {subject.topics.map(topic => (
+                    <option key={topic} value={topic}>{topic}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Subject/topic modal with Gemini lesson */}
-      {selectedSubject && (
-        <div className="video-modal" onClick={handleCloseModal}>
-          <div className="video-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="close-btn" onClick={handleCloseModal}>×</button>
-            <h2>{selectedSubject.title}</h2>
-            <div style={{ margin: '1rem 0', fontSize: '1.1rem', color: '#444' }}>{selectedSubject.description}</div>
-            <div style={{ margin: '1.5rem 0 1rem 0', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-              <label htmlFor="topic-select" style={{ fontWeight: 600, marginBottom: '0.5rem', color: '#3456b3', fontSize: '1.08rem' }}>Select a topic:</label>
-              <select
-                id="topic-select"
-                value={selectedTopic}
-                onChange={handleTopicSelect}
-                style={{
-                  padding: '0.7rem 1rem',
-                  borderRadius: '8px',
-                  border: '1.5px solid #4f8cff',
-                  fontSize: '1.05rem',
-                  background: '#f9faff',
-                  color: '#222',
-                  outline: 'none',
-                  minWidth: '220px',
-                  boxShadow: '0 2px 8px rgba(79,140,255,0.07)'
-                }}
-              >
-                <option value="">-- Choose a topic --</option>
-                {selectedSubject.topics.map(topic => (
-                  <option key={topic} value={topic}>{topic}</option>
-                ))}
-              </select>
-            </div>
-            {topicLoading && <div style={{ margin: '1.5rem 0', color: '#4f8cff', fontWeight: 500 }}>Loading lesson...</div>}
-            {lesson && !topicLoading && (
-              <div
-                style={{
-                  margin: '1.5rem 0',
-                  fontSize: '1.13rem',
-                  background: '#f7faff',
-                  padding: '1.2rem',
-                  borderRadius: '10px',
-                  color: '#222',
-                  border: '1px solid #e0e7ff',
-                  boxShadow: '0 2px 12px rgba(79,140,255,0.07)',
-                  lineHeight: 1.7,
-                  letterSpacing: '0.01em',
-                  fontFamily: 'inherit',
-                  maxWidth: '100%',
-                  wordBreak: 'break-word',
-                  maxHeight: '350px',
-                  overflowY: 'auto',
-                }}
-                dangerouslySetInnerHTML={{ __html: formatLessonContent(lesson) }}
-              />
-            )}
-          </div>
-        </div>
-      )}
+  {/* Modal removed; navigation to /courses/:subjectKey/:topicKey now handles lesson display */}
     </div>
   );
 };
