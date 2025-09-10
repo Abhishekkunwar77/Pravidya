@@ -95,7 +95,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className={`menu-toggle ${open ? 'open' : ''}`}
+          className={`navbar-menu-toggle ${open ? 'open' : ''}`}
           onClick={() => setOpen(!open)}
           aria-label="Menu"
           aria-expanded={open}
@@ -107,9 +107,9 @@ const Navbar = () => {
       </div>
 
       {authPopup && (
-        <div className="auth-popup-overlay" onClick={() => setAuthPopup(false)}>
+        <div className="navbar-auth-popup-overlay" onClick={() => setAuthPopup(false)}>
           <div
-            className="auth-popup-content"
+            className="navbar-auth-popup-content"
             onClick={(e) => e.stopPropagation()}
           >
             <CollegeAuthForm onClose={() => setAuthPopup(false)} />

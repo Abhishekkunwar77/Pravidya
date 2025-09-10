@@ -62,7 +62,7 @@
 }
 
 /* Mobile Menu Button */
-.menu-toggle {
+.navbar-menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -75,7 +75,7 @@
   z-index: 1001;
 }
 
-.menu-toggle span {
+.navbar-menu-toggle span {
   height: 3px;
   width: 100%;
   background-color: #00004d;
@@ -101,11 +101,11 @@
   .navbar-links {
     gap: 20px;
   }
-  
+
   .navbar-links a {
     font-size: 15px;
   }
-  
+
   .get-started-btn {
     padding: 8px 16px;
     font-size: 15px;
@@ -116,11 +116,11 @@
   .navbar-container {
     padding: 10px 15px;
   }
-  
+
   .navbar-logo img {
     height: 45px;
   }
-  
+
   .navbar-links {
     position: fixed;
     top: 0;
@@ -134,18 +134,18 @@
     transition: right 0.3s ease;
     z-index: 999;
   }
-  
+
   .navbar-links.active {
     right: 0;
   }
-  
+
   .navbar-links a {
     padding: 12px 0;
     width: 100%;
     border-bottom: 1px solid #f0f0f0;
     font-size: 18px;
   }
-  
+
   .get-started-btn {
     margin-top: 15px;
     width: 100%;
@@ -153,8 +153,8 @@
     padding: 12px;
     font-size: 16px;
   }
-  
-  .menu-toggle {
+
+  .navbar-menu-toggle {
     display: flex;
   }
 }
@@ -163,18 +163,18 @@
   .navbar-links {
     width: 85%;
   }
-  
+
   .navbar-container {
-    padding: 8px 10px;
+    padding: 20px 10px;
   }
-  
+
   .navbar-logo img {
-    height: 40px;
+    height: 50px;
   }
 }
 
 /* Popup Overlay Styles */
-.auth-popup-overlay {
+.navbar-auth-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -187,18 +187,18 @@
   z-index: 2000;
 }
 
-.auth-popup-content {
-  background: white;
+.navbar-auth-popup-content {
   border-radius: 8px;
   padding: 20px;
   max-width: 90%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  z-index: 2001; /* <-- ADD THIS */
 }
 
 /* Prevent body scroll when menu or popup is open */
 body.menu-open,
 body.popup-open {
   overflow: hidden;
-}
+}  

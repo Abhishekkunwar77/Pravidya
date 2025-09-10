@@ -11,7 +11,7 @@ const CollegeAuthForm = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +49,6 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
         onClose();
 
         if (state === 'login') {
-          // Redirect to student account creation page after login
           navigate('/teacher-dashboard');
         }
       } else {
@@ -66,17 +65,17 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   };
 
   return (
-    <form className="college-auth-form" onSubmit={handleSubmit}>
-      <button type="button" className="close-popup" onClick={onClose}>
+    <form className="caf-college-auth-form" onSubmit={handleSubmit}>
+      <button type="button" className="caf-close-popup" onClick={onClose}>
         &times;
       </button>
 
-      <h2 className="form-title">
+      <h2 className="caf-form-title">
         {state === 'login' ? 'Academy Login' : 'Academy Sign Up'}
       </h2>
 
       {state === 'register' && (
-        <div className="form-group">
+        <div className="caf-form-group">
           <label>Name</label>
           <input
             type="text"
@@ -89,7 +88,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
         </div>
       )}
 
-      <div className="form-group">
+      <div className="caf-form-group">
         <label>Email</label>
         <input
           type="email"
@@ -101,7 +100,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
         />
       </div>
 
-      <div className="form-group">
+      <div className="caf-form-group">
         <label>Password</label>
         <input
           type="password"
@@ -113,7 +112,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
         />
       </div>
 
-      <p className="toggle-text">
+      <p className="caf-toggle-text">
         {state === 'register' ? (
           <>
             Already have an account?{' '}
@@ -129,7 +128,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
         )}
       </p>
 
-      <button type="submit" className="submit-btn" disabled={loading}>
+      <button type="submit" className="caf-submit-btn" disabled={loading}>
         {loading
           ? state === 'login'
             ? 'Logging in...'
