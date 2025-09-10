@@ -6,8 +6,11 @@
   font-family: Outfit;
 }
 
-.notfound-animation {
-  max-width: 400px;
+.not-found-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
   margin: 0 auto 30px;
 }
 
@@ -44,7 +47,6 @@
   background-color: #f39c12;
   color: #fff;
 }
-
 
 .contact-btn {
   background-color: #00004d;

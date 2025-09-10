@@ -1,6 +1,6 @@
 /* Global Styles */
 .about-page {
-  font-family: 'Poppins', sans-serif;
+  font-family: Outfit;
   color: #333;
   background-color: #fdfdfd;
   padding: 40px 20px;
@@ -79,11 +79,11 @@
 /* Vision + Mission */
 .about-vision-section,
 .about-mission-section {
+  gap:40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
@@ -94,14 +94,20 @@
 
 .about-vision-image,
 .about-mission-image {
-  flex: 1;
+  object-fit: contain;
+  width: 700px;
   display: flex;
   justify-content: center;
 }
 
-.about-vision-image-style,
+.about-vision-image-style {
+  max-width: 500px;
+  height: 500px;
+  width: 100%;
+}
 .about-mission-image-style {
-  max-width: 400px;
+  max-width: 700px;
+  height: 600px;
   width: 100%;
 }
 
@@ -130,7 +136,7 @@
 .about-stats-section {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 70px;
   flex-wrap: wrap;
   margin-bottom: 80px;
 }
@@ -141,7 +147,7 @@
   padding: 30px;
   border-radius: 10px;
   text-align: center;
-  width: 200px;
+  width: 250px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
@@ -178,7 +184,7 @@
   padding: 50px 0;
   max-width: 1400px;
   margin: 0 auto;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap; /* ensures responsiveness */
 }
 
@@ -254,7 +260,7 @@
   }
 
   .value-card {
-    width: 45%;
+    width: 50%;
   }
 }
 
@@ -269,5 +275,18 @@
 
   .value-description {
     font-size: 0.95rem;
+  }
+}
+/* Hide big images on small screens */
+@media (max-width: 768px) {
+  .about-vision-image,
+  .about-mission-image {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .about-vision-text p,
+  .about-mission-text p {
+    text-align: center;
   }
 }

@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Lottie from 'lottie-react';
 import './PageNotFound.css';
+import PageNotFOund from '../../assets/PageNotFound.png'; // replace with your image path
 
 const PageNotFound = () => {
-  const [animationData, setAnimationData] = useState(null);
-
-  useEffect(() => {
-    fetch('/PageNotFound.json') // served directly from public/
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((err) => console.error('Failed to load Lottie JSON', err));
-  }, []);
-
   return (
     <div className="notfound-container">
-      <div className="notfound-animation">
-        {animationData && <Lottie animationData={animationData} loop={true} />}
+      <div className="not-found-image">
+        <img draggable='false' src={PageNotFOund} alt="Page Not Found" />
       </div>
       <h1 className="notfound-title">Page Not Found</h1>
       <p className="notfound-text">

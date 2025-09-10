@@ -110,10 +110,20 @@ const AboutUs = () => {
           <div className="about-vision-text">
             <h2>Our Vision</h2>
             <p>
-              To create an inclusive digital ecosystem where every child in
-              rural India has equal access to knowledge, technology, and
-              opportunities. We believe in transforming villages into hubs of
-              learning that nurture curiosity, skills, and lifelong success.
+              Our vision is to build a future where every child in Nabha and
+              nearby rural areas has equal access to quality education, digital
+              resources, and essential 21st-century skills. We aim to transform
+              government schools, often limited by outdated infrastructure and
+              poor connectivity, into digitally empowered learning spaces. This
+              vision goes beyond providing devices or content, it is about
+              nurturing curiosity, building confidence, and ensuring rural
+              students enjoy the same opportunities as their urban peers. By
+              integrating modern technology, localized learning materials, and
+              offline-first access, we seek to bridge the rural-urban divide and
+              prepare students to thrive in academic and professional life.
+              Ultimately, our vision is to make education the great equalizer,
+              turning villages into hubs of innovation, resilience, and
+              progress.
             </p>
           </div>
           <div className="about-vision-image">
@@ -137,11 +147,18 @@ const AboutUs = () => {
           <div className="about-mission-text">
             <h2>Our Mission</h2>
             <p>
-              We aim to equip rural schools with digital learning platforms,
-              teacher training, and interactive resources that bring education
-              alive. By building offline-ready content, multilingual resources,
-              and scalable technology, we ensure that no student is left behind
-              because of geography or infrastructure challenges.
+              Our mission is to create a digital learning platform tailored for
+              rural schools in Nabha, offering interactive lessons, digital
+              literacy modules, and resources that work even on low-end devices
+              with poor connectivity. We aim to empower students with engaging,
+              localized content while providing teachers with dashboards to
+              monitor progress and adopt modern teaching practices. By
+              collaborating with schools, parents, and the Punjab Education
+              Department, we seek to bridge the rural-urban education gap and
+              prepare every child with the skills and confidence needed for a
+              digital-first future. Through this mission, we aspire to transform
+              education into a tool of empowerment that uplifts entire rural
+              communities.
             </p>
           </div>
         </div>

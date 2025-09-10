@@ -72,7 +72,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
       </button>
 
       <h2 className="form-title">
-        {state === 'login' ? 'College Login' : 'College Sign Up'}
+        {state === 'login' ? 'Academy Login' : 'Academy Sign Up'}
       </h2>
 
       {state === 'register' && (
