@@ -20,6 +20,7 @@ import CreateStudentAccount from './Teacher/TeacherComponents/CreateStudentAccou
 import TeacherDashboard from './Teacher/TeacherComponents/TeacherDashboard.jsx';
 import Faq from './Pages/Faqs/Faq.jsx';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import Courses from './Pages/Courses/Courses.jsx';
 
 // Scroll to top component
 const ScrollToTop = () => {
@@ -71,6 +72,7 @@ const App = () => {
         />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
