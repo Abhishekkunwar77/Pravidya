@@ -38,12 +38,10 @@ const Home = () => {
     if (location.state?.scrollTo === 'contact') {
       const contactSection = document.getElementById('contact');
       if (contactSection) {
-        setTimeout(() => {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }, 300); // small delay for render
+        contactSection.scrollIntoView({ behavior: 'smooth' });
       }
-      // Clear the state so it doesn't scroll again on back/refresh
-      window.history.replaceState({}, document.title);
+      // Clear the state to prevent repeated scrolling on refresh
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, [location]);
 
@@ -51,7 +49,7 @@ const Home = () => {
     <>
       <LandingPage />
       <NewsLetter />
-      <HomeContact /> {/* Make sure this has id="contact" */}
+      <HomeContact /> {/* Ensure this has id="contact" */}
     </>
   );
 };

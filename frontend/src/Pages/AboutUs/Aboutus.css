@@ -136,18 +136,19 @@
 .about-stats-section {
   display: flex;
   justify-content: center;
-  gap: 70px;
+  gap: 50px;
   flex-wrap: wrap;
   margin-bottom: 80px;
 }
 
 .stat-card {
+  margin-top: 20px;
   background: #fff;
   border: 2px solid #f39c12;
   padding: 30px;
   border-radius: 10px;
   text-align: center;
-  width: 250px;
+  width: 210px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
@@ -182,7 +183,6 @@
   display: flex;
   justify-content: space-around;
   padding: 50px 0;
-  max-width: 1400px;
   margin: 0 auto;
   gap: 30px;
   flex-wrap: wrap; /* ensures responsiveness */

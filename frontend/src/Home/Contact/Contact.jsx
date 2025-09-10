@@ -12,7 +12,7 @@ const HomeContact = () => {
     message: '',
   });
 
-  const [loading, setLoading] = useState(false); // Track sending state
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,15 +23,12 @@ const HomeContact = () => {
     setLoading(true);
 
     try {
-      // Send form data to backend
       await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/contacts`,
         formData
       );
 
       toast.success('Your enquiry is submitted successfully!');
-
-      // Reset form after success
       setFormData({ name: '', phone: '', email: '', message: '' });
     } catch (error) {
       toast.error(
@@ -43,42 +40,42 @@ const HomeContact = () => {
   };
 
   return (
-    <div id="contact" className="contact-container">
-      <div className="contact-info">
-        <h2 className="contact-title">We’re Here for You</h2>
-        <hr className="title-underline" />
+    <div id="contact" className="hc-contact-container">
+      <div className="hc-contact-info">
+        <h2 className="hc-contact-title">We’re Here for You</h2>
+        <hr className="hc-title-underline" />
 
-        <div className="enquiry-section">
+        <div className="hc-enquiry-section">
           <h3>For Service Enquiry </h3>
-          <div className="contact-details">
-            <div className="contact-item">
-              <div className="icon-circle">
-                <FaPhone className="phone-icon" />
+          <div className="hc-contact-details">
+            <div className="hc-contact-item">
+              <div className="hc-icon-circle">
+                <FaPhone className="hc-phone-icon" />
               </div>
               <span>+91 5661238596</span>
             </div>
-            <div className="contact-item">
-              <div className="icon-circle">
-                <FaEnvelope className="email-icon" />
+            <div className="hc-contact-item">
+              <div className="hc-icon-circle">
+                <FaEnvelope className="hc-email-icon" />
               </div>
               <span>info@pravidya.com</span>
             </div>
           </div>
         </div>
 
-        <div className="team-section">
-          <hr className="section-underline" />
+        <div className="hc-team-section">
+          <hr className="hc-section-underline" />
           <h3>To Join Our Team </h3>
-          <div className="contact-details">
-            <div className="contact-item">
-              <div className="icon-circle">
-                <FaPhone className="phone-icon" />
+          <div className="hc-contact-details">
+            <div className="hc-contact-item">
+              <div className="hc-icon-circle">
+                <FaPhone className="hc-phone-icon" />
               </div>
               <span>+91 9384735572</span>
             </div>
-            <div className="contact-item">
-              <div className="icon-circle">
-                <FaEnvelope className="email-icon" />
+            <div className="hc-contact-item">
+              <div className="hc-icon-circle">
+                <FaEnvelope className="hc-email-icon" />
               </div>
               <span>support@pravidya.com</span>
             </div>
@@ -86,10 +83,10 @@ const HomeContact = () => {
         </div>
       </div>
 
-      <div className="quote-form">
+      <div className="hc-quote-form">
         <h2>Get in touch</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="hc-form-group">
             <input
               type="text"
               name="name"
@@ -100,7 +97,7 @@ const HomeContact = () => {
               disabled={loading}
             />
           </div>
-          <div className="form-group">
+          <div className="hc-form-group">
             <input
               type="tel"
               name="phone"
@@ -111,7 +108,7 @@ const HomeContact = () => {
               disabled={loading}
             />
           </div>
-          <div className="form-group">
+          <div className="hc-form-group">
             <input
               type="email"
               name="email"
@@ -122,7 +119,7 @@ const HomeContact = () => {
               disabled={loading}
             />
           </div>
-          <div className="form-group">
+          <div className="hc-form-group">
             <textarea
               name="message"
               placeholder="Message"
@@ -132,7 +129,7 @@ const HomeContact = () => {
               disabled={loading}
             ></textarea>
           </div>
-          <button className="send-enquiry" type="submit" disabled={loading}>
+          <button className="hc-send-enquiry" type="submit" disabled={loading}>
             {loading ? 'Sending...' : 'Send Enquiry'}
           </button>
         </form>

@@ -1,25 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './PageNotFound.css';
-import PageNotFOund from '../../assets/PageNotFound.png'; // replace with your image path
+import PageNotFoundImg from '../../assets/PageNotFound.png';
 
 const PageNotFound = () => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/', { state: { scrollTo: 'contact' } }); // scroll to contact section
+  };
+
   return (
-    <div className="notfound-container">
-      <div className="not-found-image">
-        <img draggable='false' src={PageNotFOund} alt="Page Not Found" />
+    <div className="pnf-container">
+      <div className="pnf-image">
+        <img draggable="false" src={PageNotFoundImg} alt="Page Not Found" />
       </div>
-      <h1 className="notfound-title">Page Not Found</h1>
-      <p className="notfound-text">
+      <h1 className="pnf-title">Page Not Found</h1>
+      <p className="pnf-text">
         Oops! The page you are looking for doesn’t exist or has been moved.
       </p>
-      <div className="notfound-buttons">
-        <Link to="/" className="btn home-btn">
-          Return home
+      <div className="pnf-buttons">
+        {/* Keep Return Home button */}
+        <Link to="/" className="pnf-btn pnf-home-btn">
+          Return Home
         </Link>
-        <Link to="/contact" className="btn contact-btn">
+        {/* Contact Us scrolls to contact section */}
+        <button className="pnf-btn pnf-contact-btn" onClick={handleContactClick}>
           Contact Us
-        </Link>
+        </button>
       </div>
     </div>
   );

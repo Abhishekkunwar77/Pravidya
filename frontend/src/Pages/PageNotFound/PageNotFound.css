@@ -1,12 +1,15 @@
-.notfound-container {
+/* PageNotFound.css */
+
+.pnf-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 60px 20px;
   text-align: center;
-  font-family: Outfit;
+  font-family: Outfit, sans-serif;
 }
 
-.not-found-image {
+/* Image container */
+.pnf-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,45 +17,62 @@
   margin: 0 auto 30px;
 }
 
-.notfound-title {
-  font-size: 2.5rem;
+.pnf-image img {
+  width: 100%;
+  max-width: 400px; /* limits image size on large screens */
+  height: auto;
+}
+
+/* Title */
+.pnf-title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* scales with viewport */
   font-weight: bold;
   color: #00004d;
   margin-bottom: 15px;
 }
 
-.notfound-text {
-  font-size: 1.1rem;
+/* Text */
+.pnf-text {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   color: #333;
   margin-bottom: 30px;
   line-height: 1.6;
+  padding: 0 10px;
 }
-
-.notfound-buttons {
+/* Buttons */
+.pnf-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.btn {
-  padding: 12px 25px;
-  border-radius: 8px;
+.pnf-btn {
+  display: inline-flex; /* ensures link & button behave the same */
+  align-items: center; /* vertically center text */
+  justify-content: center; /* horizontally center text */
+  padding: 12px 25px; /* same padding */
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  min-width: 150px; /* ensures consistent width */
+  height: 50px; /* ensures consistent height */
+  text-align: center;
+  box-sizing: border-box; /* includes padding in height/width */
 }
 
-.home-btn {
+.pnf-home-btn {
   background-color: #f39c12;
   color: #fff;
 }
 
-.contact-btn {
+.pnf-contact-btn {
   background-color: #00004d;
   color: #fff;
 }
 
-.contact-btn:hover {
+.pnf-contact-btn:hover {
   background-color: #02025a;
+  cursor: pointer;
 }
