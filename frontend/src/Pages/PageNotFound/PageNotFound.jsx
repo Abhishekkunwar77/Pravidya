@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
-import notFoundAnimation from '../../assets/PageNotFound.json'; // your Lottie file
-import "./PageNotFound.css"
+import './PageNotFound.css';
+
 const PageNotFound = () => {
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch('/PageNotFound.json') // served directly from public/
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error('Failed to load Lottie JSON', err));
+  }, []);
+
   return (
     <div className="notfound-container">
       <div className="notfound-animation">
-        <Lottie animationData={notFoundAnimation} loop={true} />
+        {animationData && <Lottie animationData={animationData} loop={true} />}
       </div>
       <h1 className="notfound-title">Page Not Found</h1>
       <p className="notfound-text">
