@@ -1,0 +1,135 @@
+/* Use flexbox instead of grid for row-wise centering */
+.overall-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the row contents */
+  gap: 5rem;
+  padding: 2rem;
+}
+
+.card {
+  flex: 0 1 330px; /* Cards stay at fixed width but shrink if needed */
+  border-radius: 20px;
+  background: #00004d;
+  padding: 1rem;
+  border: 2px solid #f39c12;
+  transition: 0.5s ease-out;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: #fff;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.card-button {
+  width: 80%;
+  margin: 1rem auto 0;
+  border-radius: 1rem;
+  border: none;
+  background-color: #f39c12;
+  color: #00004d;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background-color: #fff;
+  color: #00004d;
+}
+
+.text-body {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.text-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.card:hover {
+  border-color: #fff;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 900px) {
+  .card {
+    flex: 0 1 45%; /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 1 90%; /* 1 per row on small screens */
+  }
+}
+
+.overall-dashboard-container {
+  text-align: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00004d;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #717171;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 150px;
+  height: 3px;
+  background: #f39c12;
+  border: none;
+  margin: 1rem auto 2rem auto;
+  border-radius: 2px;
+}
+.mail-link {
+  color: #f39c12;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.mail-link:hover {
+  text-decoration: underline;
+  color: #00004d;
+}

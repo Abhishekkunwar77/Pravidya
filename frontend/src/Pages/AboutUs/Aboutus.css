@@ -1,0 +1,273 @@
+/* Global Styles */
+.about-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #fdfdfd;
+  padding: 40px 20px;
+}
+
+.about-container,
+.about-services-section {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Top Section */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  color: #00004d;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.about-button-discover,
+.about-button-quote {
+  display: inline-block;
+  padding: 12px 24px;
+  margin-right: 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.about-button-discover {
+  background-color: #00004d;
+  color: #fff;
+}
+
+.about-button-discover:hover {
+  background-color: #111166;
+}
+
+.about-button-quote {
+  border: 2px solid #f39c12;
+  color: #f39c12;
+}
+
+.about-button-quote:hover {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+/* Vision + Mission */
+.about-vision-section,
+.about-mission-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.about-vision-text,
+.about-mission-text {
+  flex: 1;
+}
+
+.about-vision-image,
+.about-mission-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-vision-image-style,
+.about-mission-image-style {
+  max-width: 400px;
+  width: 100%;
+}
+
+.about-vision-text h2,
+.about-mission-text h2 {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+.about-vision-text p,
+.about-mission-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Key Achievements */
+.key-achievements {
+  font-size: 2rem;
+  text-align: center;
+  margin: 60px 0 30px;
+  color: #00004d;
+}
+
+.about-stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 2px solid #f39c12;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00004d;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Values Section */
+.value-card-titles {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 2rem;
+  color: #f39c12;
+}
+
+.about-values-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+  flex-wrap: wrap; /* ensures responsiveness */
+}
+
+.value-card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+}
+
+.value-card:nth-child(1) {
+  background: #ff4d4d;
+}
+
+.value-card:nth-child(2) {
+  background: #ff8c00;
+}
+
+.value-card:nth-child(3) {
+  background: #32cd32;
+}
+
+.value-card:nth-child(4) {
+  background: #4682b4;
+}
+
+.value-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 15px 20px 5px;
+  text-transform: uppercase;
+}
+
+.value-description {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 0 20px 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-container,
+  .about-vision-section,
+  .about-mission-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content h1 {
+    font-size: 2rem;
+  }
+
+  .stat-card {
+    width: 160px;
+  }
+
+  .about-values-section {
+    justify-content: center;
+  }
+
+  .value-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .value-card {
+    width: 100%;
+  }
+
+  .value-title {
+    font-size: 1.3rem;
+  }
+
+  .value-description {
+    font-size: 0.95rem;
+  }
+}
